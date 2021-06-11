@@ -51,8 +51,8 @@ int main(int argc, char** argv)
 		TotalSegmentSizes+=segment_table[i];
 		PacketCount+=segment_table[i]!=255? 1:0;
 	    }
-	    printf("Page=%u\tChecksum=%u\tGranule=%" PRIu64 "\tPacketCount=%d\tBOS=%d\tEOS=%d\tContinuation=%d\tSize=%d\n", 
-		    page.page_sequence_number, page.page_checksum,
+	    printf("StreamId=%d\tPage=%u\tChecksum=0x%x\tGranule=%" PRIu64 "\tPacketCount=%d\tBOS=%d\tEOS=%d\tContinuation=%d\tSize=%lu\n", 
+		    page.stream_serial_number, page.page_sequence_number, page.page_checksum,
 		    page.absolute_granule_position, PacketCount,
 		    bBOS, bEOS, bContinuationFlag,
 		    TotalSegmentSizes+sizeof(OggPage)+segment_table.size()
